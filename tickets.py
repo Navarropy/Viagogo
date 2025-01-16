@@ -64,7 +64,7 @@ no_tickets_xpath = '//*[@id="stubhub-event-detail-listings-grid"]/div[1]/div/div
 event_location_xpath = '//*[@id="event-detail-header"]/div/div/div[1]/div[2]/div/div/div[2]/button'
 ticket_container_xpath = '//*[@id="listings-container"]/div | /html/body/div[1]/div[2]/div[3]/div/div[2]/div/div[3]/div[*]'
 ticket_name_xpath = './div/div[2]/div/div[1]/div[1]/div[1] | ./div/div/div[1]/div[1]/div[1]'
-ticket_price_xpath = './div/div[2]/div/div[1]/div[2]/div[1]/div[2] | ./div/div/div/div[2]/div/div[2]'
+ticket_price_xpath = './div/div[2]/div/div[1]/div[2]/div[1]/div[2] | ./div/div/div/div[2]/div/div[2] | .//*[contains(text(), "$")]'
 
 # [MODIFICATION] XPath for the dialog's zone element and close button
 zone_xpath = '//*[@id="selected-buyer-listing"]/div[2]/div[1]/div/div[2]/div[1]/div[2]/div[2]'
@@ -110,7 +110,7 @@ for event in events:
 
         current_url = update_query_param(event_link, "quantity", quantity)
         print(f"[DEBUG] Navigating to: {current_url}")
-        driver.get(current_url)
+        driver.get("https://www.viagogo.com/Colorado-Mammoth-Parking-Passes/Colorado-Mammoth-Tickets/E-155401221?quantity=1")
 
         # Check if "no tickets available" element is present
         try:
